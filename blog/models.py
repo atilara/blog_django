@@ -4,6 +4,12 @@ from django.utils import timezone
 # Importando user que está logado
 from django.contrib.auth.models import User
 
+# Criando manager customizado herdando de manager
+class PublishedManager(models.Manager):
+	# Fazendo uma query que retorna os artigos publicados
+	def get_queryset(self):
+		return super(PublishedManager.self).get_queryset().filter(status='publicado')
+
 # Criação de uma classe para postagens
 class Post(models.Model):
 	# Status de aprovação, o post precisa ser revisado antes de publicado
@@ -24,6 +30,10 @@ class Post(models.Model):
 	modified = models.DateTimeField(auto_now=True)
 	# O campo status no banco possui o status como possíveis escolhas
 	status = models.CharField(max_length=10, choices=STATUS, default='rascunho')
+
+	# Para utilizar manager customizado
+	# objects = models.Manager()
+	# published = PublishedManager()
 
 	# Classe meta configura algumas coisas existentes nesse model, no momento está ordenando
 	# os posts do mais recente para o mais antigo
