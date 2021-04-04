@@ -3,6 +3,6 @@
 {% block content %}
   <h1> {{object.title}} </h1>
   <p> {{object.content}} </p>
-  <a href="{{object.get_absolute_url_edit}}" class="btn btn-success">Editar</a>
+  <a href="{{object.get_absolute_url_edit}}" class="btn btn-warning">Editar</a>
   <a href="{{object.get_absolute_url_delete}}" class="btn btn-danger">Deletar</a>
 {% endblock content %}

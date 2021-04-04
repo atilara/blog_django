@@ -3,8 +3,14 @@
 {% block content %} 
   <h1>Blog</h1>
   {% for post in object_list %}
-    <h1><a href="{{post.get_absolute_url}}">{{post.title}}</a></h1>
-    <p> {{post.content}} </p>
+    <div class="card mt-3">
+      <div class="card-header">
+        <h3>{{post.title}}</h3>
+      </div>
+      <div class="card-body">
+        <a href="{{post.get_absolute_url}}" class="btn btn-success">Ler postagem</a>
+      </div>
+    </div>
   {% endfor %}
 {% endblock content %}
 {% comment %} Extende de base.html e logo depois modifica seus conteúdos {% endcomment %}
