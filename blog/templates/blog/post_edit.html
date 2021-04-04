@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block title %} Blog - Editar Post {% endblock title %}
+{% block content %}
+  <h1>Editar Postagem</h1>
+  {% comment %} Puxa todos os campos do backend e coloca no form {% endcomment %}
+  <form action="" method="POST"> {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="Editar">
+  </form>
+{% endblock content %}

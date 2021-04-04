@@ -41,6 +41,10 @@ class Post(models.Model):
 	def get_absolute_url(self):
 		return reverse('post_detail', args=[self.slug])
 
+	def get_absolute_url_edit(self):
+		return reverse('post_edit', args=[self.slug])
+
+
 	# Classe meta configura algumas coisas existentes nesse model, no momento está ordenando
 	# os posts do mais recente para o mais antigo
 	class Meta:
