@@ -3,6 +3,8 @@ from django.db import models
 from django.utils import timezone
 # Importando user que está logado
 from django.contrib.auth.models import User
+# Para utilizar URLs absolutas
+from django.urls import reverse
 
 # Criando manager customizado herdando de manager
 class PublishedManager(models.Manager):
@@ -34,6 +36,10 @@ class Post(models.Model):
 	# Para utilizar manager customizado
 	# objects = models.Manager()
 	# published = PublishedManager()
+
+	# Função para retornar url absoluta
+	def get_absolute_url(self):
+		return reverse('post_detail', args=[self.slug])
 
 	# Classe meta configura algumas coisas existentes nesse model, no momento está ordenando
 	# os posts do mais recente para o mais antigo
