@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block title %} Blog - Deletar Post {% endblock title %}
+{% block content %}
+  <h1>Deletar Postagem</h1>
+  {% comment %} Puxa todos os campos do backend e coloca no form {% endcomment %}
+  <form action="" method="POST"> {% csrf_token %}
+    <p>Você tem certeza que deseja excluir o registro "{{post.title}}"?</p>
+    <input type="submit" value="Deletar">
+  </form>
+{% endblock content %}
